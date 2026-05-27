@@ -3,6 +3,7 @@
 import asyncio
 import random
 
+
 async def wait_random(max_delay: int = 10) -> float:
     """
     Function takes max_delay value then randomly choose number
