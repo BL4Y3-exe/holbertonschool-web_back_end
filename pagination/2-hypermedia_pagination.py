@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""This module contains index_range function."""
+"""Hypermedia pagination."""
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 def index_range(page, page_size):
@@ -44,3 +44,17 @@ class Server:
         if start >= len(data):
             return []
         return data[start:end]
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """
+        Function returns a dictionary containing pagination information.
+        """
+        data = self.get_page(page, page_size)
+        return {
+            "page_size": page_size,
+            "page": page,
+            "data": data,
+            "next_page": page + 1 if len(data) == page_size else None,
+            "prev_page": page - 1 if page > 1 else None,
+            "total_pages": math.ceil(len(self.dataset()) / page_size)
+        }
