@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simple pagination."""
+"""This module contains index_range function."""
 import csv
 import math
 from typing import List
