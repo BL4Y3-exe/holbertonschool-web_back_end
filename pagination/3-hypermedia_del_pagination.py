@@ -45,7 +45,7 @@ class Server:
         """
         assert isinstance(index, int) and index >= 0
         assert index < len(self.dataset())
-        indexed_data = self.indexed_dataset
+        indexed_data = self.indexed_dataset()
         data = []
         current = index
         while len(data) < page_size and current < len(self.dataset()):
@@ -56,5 +56,5 @@ class Server:
             "index": index,
             "data": data,
             "page_size": len(data),
-            "next_index": current
+            "next_index": current,
         }
