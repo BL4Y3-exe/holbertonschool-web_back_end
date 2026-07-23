@@ -41,10 +41,10 @@ const app = http.createServer((request, response) => {
   if (request.url === '/students') {
     getStudents(database)
       .then((students) => {
-        response.end(`This is the list of our students\n${students}\n`);
+        response.end(`This is the list of our students\n${students}`);
       })
       .catch((error) => {
-        response.end(`This is the list of our students\n${error.message}\n`);
+        response.end(`This is the list of our students\n${error.message}`);
       });
   } else {
     response.end('Hello Holberton School!');
