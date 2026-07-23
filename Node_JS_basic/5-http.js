@@ -47,7 +47,7 @@ const app = http.createServer((request, response) => {
         response.end(`This is the list of our students\n${error.message}\n`);
       });
   } else {
-    response.end('Hello Holberton School!\n');
+    response.end('Hello Holberton School!');
   }
 });
 
